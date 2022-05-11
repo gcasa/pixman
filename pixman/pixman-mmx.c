@@ -244,7 +244,7 @@ to_m64 (uint64_t x)
 #elif defined M64_MEMBER        /* __m64 is a struct, not an integral type */
     __m64 res;
 
-    res.M64_MEMBER = x;
+    // res.M64_MEMBER = x;
     return res;
 #elif defined USE_M64_DOUBLE
     return *(__m64 *)&x;
