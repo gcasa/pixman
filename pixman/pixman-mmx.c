@@ -259,8 +259,9 @@ to_uint64 (__m64 x)
 #ifdef USE_CVT_INTRINSICS
     return _mm_cvtm64_si64 (x);
 #elif defined M64_MEMBER        /* __m64 is a struct, not an integral type */
-    uint64_t res = x.M64_MEMBER;
-    return res;
+    // uint64_t res = x.M64_MEMBER;
+    // return res;
+    return *(uint64_t *)&x;
 #elif defined USE_M64_DOUBLE
     return *(uint64_t *)&x;
 #else /* USE_M64_CASTS */
